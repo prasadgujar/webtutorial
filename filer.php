@@ -1,13 +1,16 @@
 <?php
 if(isset($_POST['name']))
 {
-    $name = $_POST['$name'];
+    $name = $_POST['name'];
 
     $handle = fopen('name.txt','a');
     fwrite($handle,$name."\n");
     fclose($handle);
 
-    $readin = file('names.txt');
+    $readin = file('name.txt');
+    foreach ($readin as $fname) {
+        echo trim($fname) .',';
+    }
 
 }
 else {
